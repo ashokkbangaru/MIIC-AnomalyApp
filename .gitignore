@@ -172,3 +172,8 @@ cython_debug/
 
 # PyPI configuration file
 .pypirc
+
+# Don't ignore model files and test images
+!backend/model/model_unquant.tflite
+!backend/model/labels.txt
+!backend/tests/test_images/test_*.jpg
