@@ -1,0 +1,6 @@
+F:\Programming\MIIC-AnomalyApp\frontend\SamplePlugin\obj\Debug\net9.0\SamplePlugin.csproj.AssemblyReference.cache
+F:\Programming\MIIC-AnomalyApp\frontend\SamplePlugin\obj\Debug\net9.0\SamplePlugin.GeneratedMSBuildEditorConfig.editorconfig
+F:\Programming\MIIC-AnomalyApp\frontend\SamplePlugin\obj\Debug\net9.0\SamplePlugin.AssemblyInfoInputs.cache
+F:\Programming\MIIC-AnomalyApp\frontend\SamplePlugin\obj\Debug\net9.0\SamplePlugin.AssemblyInfo.cs
+F:\Programming\MIIC-AnomalyApp\frontend\SamplePlugin\obj\Debug\net9.0\SamplePlugin.csproj.CoreCompileInputs.cache
+F:\Programming\MIIC-AnomalyApp\frontend\SamplePlugin\obj\Debug\net9.0\SamplePlugin.sourcelink.json

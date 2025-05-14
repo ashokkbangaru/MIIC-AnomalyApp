@@ -1,0 +1,12 @@
+F:\Programming\MIIC-AnomalyApp\frontend\PluginContracts\bin\Debug\net9.0\PluginContracts.deps.json
+F:\Programming\MIIC-AnomalyApp\frontend\PluginContracts\bin\Debug\net9.0\PluginContracts.dll
+F:\Programming\MIIC-AnomalyApp\frontend\PluginContracts\bin\Debug\net9.0\PluginContracts.pdb
+F:\Programming\MIIC-AnomalyApp\frontend\PluginContracts\obj\Debug\net9.0\PluginContracts.GeneratedMSBuildEditorConfig.editorconfig
+F:\Programming\MIIC-AnomalyApp\frontend\PluginContracts\obj\Debug\net9.0\PluginContracts.AssemblyInfoInputs.cache
+F:\Programming\MIIC-AnomalyApp\frontend\PluginContracts\obj\Debug\net9.0\PluginContracts.AssemblyInfo.cs
+F:\Programming\MIIC-AnomalyApp\frontend\PluginContracts\obj\Debug\net9.0\PluginContracts.csproj.CoreCompileInputs.cache
+F:\Programming\MIIC-AnomalyApp\frontend\PluginContracts\obj\Debug\net9.0\PluginContracts.sourcelink.json
+F:\Programming\MIIC-AnomalyApp\frontend\PluginContracts\obj\Debug\net9.0\PluginContracts.dll
+F:\Programming\MIIC-AnomalyApp\frontend\PluginContracts\obj\Debug\net9.0\refint\PluginContracts.dll
+F:\Programming\MIIC-AnomalyApp\frontend\PluginContracts\obj\Debug\net9.0\PluginContracts.pdb
+F:\Programming\MIIC-AnomalyApp\frontend\PluginContracts\obj\Debug\net9.0\ref\PluginContracts.dll

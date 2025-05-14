@@ -1,0 +1,16 @@
+F:\Programming\MIIC-AnomalyApp\frontend\SamplePlugin\bin\Debug\net9.0-windows\SamplePlugin.deps.json
+F:\Programming\MIIC-AnomalyApp\frontend\SamplePlugin\bin\Debug\net9.0-windows\SamplePlugin.dll
+F:\Programming\MIIC-AnomalyApp\frontend\SamplePlugin\bin\Debug\net9.0-windows\SamplePlugin.pdb
+F:\Programming\MIIC-AnomalyApp\frontend\SamplePlugin\bin\Debug\net9.0-windows\PluginContracts.dll
+F:\Programming\MIIC-AnomalyApp\frontend\SamplePlugin\bin\Debug\net9.0-windows\PluginContracts.pdb
+F:\Programming\MIIC-AnomalyApp\frontend\SamplePlugin\obj\Debug\net9.0-windows\SamplePlugin.csproj.AssemblyReference.cache
+F:\Programming\MIIC-AnomalyApp\frontend\SamplePlugin\obj\Debug\net9.0-windows\SamplePlugin.GeneratedMSBuildEditorConfig.editorconfig
+F:\Programming\MIIC-AnomalyApp\frontend\SamplePlugin\obj\Debug\net9.0-windows\SamplePlugin.AssemblyInfoInputs.cache
+F:\Programming\MIIC-AnomalyApp\frontend\SamplePlugin\obj\Debug\net9.0-windows\SamplePlugin.AssemblyInfo.cs
+F:\Programming\MIIC-AnomalyApp\frontend\SamplePlugin\obj\Debug\net9.0-windows\SamplePlugin.csproj.CoreCompileInputs.cache
+F:\Programming\MIIC-AnomalyApp\frontend\SamplePlugin\obj\Debug\net9.0-windows\SamplePlugin.sourcelink.json
+F:\Programming\MIIC-AnomalyApp\frontend\SamplePlugin\obj\Debug\net9.0-windows\SamplePl.36C83407.Up2Date
+F:\Programming\MIIC-AnomalyApp\frontend\SamplePlugin\obj\Debug\net9.0-windows\SamplePlugin.dll
+F:\Programming\MIIC-AnomalyApp\frontend\SamplePlugin\obj\Debug\net9.0-windows\refint\SamplePlugin.dll
+F:\Programming\MIIC-AnomalyApp\frontend\SamplePlugin\obj\Debug\net9.0-windows\SamplePlugin.pdb
+F:\Programming\MIIC-AnomalyApp\frontend\SamplePlugin\obj\Debug\net9.0-windows\ref\SamplePlugin.dll

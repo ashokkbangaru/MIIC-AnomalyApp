@@ -1,0 +1,48 @@
+name: Build, Test, and Deploy
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build_and_test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.12'
+
+      - name: Install dependencies
+        run: |
+          cd backend
+          pip install -r requirements.txt
+
+      - name: Run Backend Tests
+        run: |
+          cd backend/tests
+          pytest
+
+      - name: Set up .NET
+        uses: actions/setup-dotnet@v1
+        with:
+          dotnet-version: '5.x'
+
+      - name: Build and Test Frontend
+        run: |
+          cd frontend/AnomalyDetector
+          dotnet build
+          dotnet test
+
+      - name: Build Docker Image for Backend
+        run: |
+          cd backend
+          docker build -t anomaly-backend .
+          
+      - name: Deploy Backend to VM (via SSH)
+        run: |
+          ssh youruser@vm-ip "docker run -d -p 8000:8000 anomaly-backend"
