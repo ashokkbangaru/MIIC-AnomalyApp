@@ -7,6 +7,7 @@ on:
 
 env:
   SKIP_DEPLOYMENT: true  # Set to false when ready to enable deployment
+  SKIP_DOCKER: true       # Set to false to enable docker build
 
 jobs:
   build_and_test:
@@ -64,6 +65,7 @@ jobs:
           dotnet test
 
       - name: Build Docker Image for Backend
+        if: env.SKIP_DOCKER != 'true'
         run: |
           cd backend
           docker build -t anomaly-backend .
