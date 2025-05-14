@@ -9,26 +9,33 @@ jobs:
   build_and_test:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout code with LFS
+      - name: Checkout code with Git LFS support
         uses: actions/checkout@v2
         with:
-          lfs: true  # Ensures .tflite model is pulled if using Git LFS
+          lfs: true
+
+      - name: Install Git LFS
+        run: |
+          git lfs install
+          git lfs pull
 
       - name: Set up Python
         uses: actions/setup-python@v2
         with:
           python-version: '3.12'
 
-      - name: Install Backend Dependencies
+      - name: Install Python dependencies
         run: |
           cd backend
           pip install -r requirements.txt
 
-      - name: Debug - Check for required files
+      - name: Check for required model and image files
         run: |
-          echo "Checking model and image files..."
+          echo "Checking files..."
           ls -lh backend/model
           ls -lh backend/tests/test_images
+          test -f backend/model/model_unquant.tflite || (echo "Missing model file!" && exit 1)
+          test -f backend/tests/test_images/test_normal.jpg || (echo "Missing test image!" && exit 1)
 
       - name: Run Backend Tests
         run: |
@@ -38,7 +45,7 @@ jobs:
       - name: Set up .NET
         uses: actions/setup-dotnet@v1
         with:
-          dotnet-version: '5.x'
+          dotnet-version: '9.x'
 
       - name: Build and Test Frontend
         run: |
@@ -57,4 +64,5 @@ jobs:
         run: |
           echo "$SSH_KEY" > key.pem
           chmod 600 key.pem
-          ssh -o StrictHostKeyChecking=no -i key.pem ashok@192.168.56.101 "docker stop anomaly-backend || true && docker rm anomaly-backend || true && docker run -d --name anomaly-backend -p 8000:8000 anomaly-backend"
+          ssh -o StrictHostKeyChecking=no -i key.pem ashok@192.168.56.101 \
+            "docker stop anomaly-backend || true && docker rm anomaly-backend || true && docker run -d --name anomaly-backend -p 8000:8000 anomaly-backend"
