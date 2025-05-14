@@ -5,7 +5,7 @@ sudo apt-get update
 sudo apt-get install -y docker.io git
 
 # Clone repository
-git clone https://github.com/your-repo/AnomalyApp.git
+git clone https://github.com/ashokkbangaru/MIIC-AnomalyApp.git
 
 # Navigate to the backend and build the Docker image
 cd AnomalyApp/backend
