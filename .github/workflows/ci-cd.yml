@@ -5,9 +5,12 @@ on:
     branches:
       - main
 
+env:
+  SKIP_DEPLOYMENT: true  # Set to false when ready to enable deployment
+
 jobs:
   build_and_test:
-    runs-on: ubuntu-latest
+    runs-on: windows-latest
     steps:
       - name: Checkout code with Git LFS support
         uses: actions/checkout@v2
@@ -59,6 +62,7 @@ jobs:
           docker build -t anomaly-backend .
 
       - name: Deploy Backend to VM via SSH
+        if: env.SKIP_DEPLOYMENT != 'true'
         env:
           SSH_KEY: ${{ secrets.SSH_KEY }}
         run: |
