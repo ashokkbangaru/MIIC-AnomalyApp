@@ -1,10 +1,12 @@
 import os
 import tensorflow as tf
 import numpy as np
+from pathlib import Path
 
 def test_model_load():
-    model_path = os.path.join("backend", "model", "model_unquant.tflite")
-    assert os.path.exists(model_path), f"Model not found at {model_path}"
+    base_dir = Path(__file__).resolve().parent.parent
+    model_path = base_dir / "model" / "model_unquant.tflite"
+    assert model_path.exists(), f"Model not found at {model_path}"
 
     # Try loading the TFLite model
     interpreter = tf.lite.Interpreter(model_path=model_path)

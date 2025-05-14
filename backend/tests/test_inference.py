@@ -2,6 +2,7 @@ import os
 import numpy as np
 from PIL import Image
 import tensorflow as tf
+from pathlib import Path
 
 def load_labels(labels_path):
     with open(labels_path, "r") as f:
@@ -40,16 +41,15 @@ def run_inference(image_path, model_path, labels_path):
     return predicted_label
 
 def test_inference_on_images():
-    model_path = os.path.join("backend", "model", "model_unquant.tflite")
-    labels_path = os.path.join("backend", "model", "labels.txt")
+    base_dir = Path(__file__).resolve().parent.parent
+    model_path = base_dir / "model" / "model_unquant.tflite"
+    labels_path = base_dir / "model" / "labels.txt"
 
-    # Test images
     test_images = ["test_normal.jpg", "test_abnormal.jpg"]
-
     for test_image in test_images:
-        test_image_path = os.path.join("backend", "tests", "test_images", test_image)
-
-        predicted_label = run_inference(test_image_path, model_path, labels_path)
+        test_image_path = base_dir / "tests" / "test_images" / test_image
+        assert test_image_path.exists(), f"Image file missing: {test_image_path}"
+        predicted_label = run_inference(str(test_image_path), str(model_path), str(labels_path))
         print(f"✅ Image: {test_image} - Predicted: {predicted_label}")
 
         # Assert that the predicted label is in the list of labels (you can modify this as per your logic)
