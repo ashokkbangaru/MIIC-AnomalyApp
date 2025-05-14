@@ -45,4 +45,4 @@ jobs:
           
       - name: Deploy Backend to VM (via SSH)
         run: |
-          ssh youruser@vm-ip "docker run -d -p 8000:8000 anomaly-backend"
+          ssh ashok@192.168.56.101 "docker run -d -p 8000:8000 anomaly-backend"
