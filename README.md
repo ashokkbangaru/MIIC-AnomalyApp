@@ -80,5 +80,6 @@ chmod +x setup_vm.sh
 - GitHub Actions: `.github/workflows/ci.yml`
 - Jenkins: see `Jenkinsfile`
 
+## Happy Coding!
 ---
 ```
