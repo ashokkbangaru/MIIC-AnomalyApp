@@ -11,6 +11,7 @@ env:
 jobs:
   build_and_test:
     runs-on: windows-latest
+
     steps:
       - name: Checkout code with Git LFS support
         uses: actions/checkout@v2
@@ -33,12 +34,18 @@ jobs:
           pip install -r requirements.txt
 
       - name: Check for required model and image files
+        shell: pwsh
         run: |
           echo "Checking files..."
-          ls -lh backend/model
-          ls -lh backend/tests/test_images
-          test -f backend/model/model_unquant.tflite || (echo "Missing model file!" && exit 1)
-          test -f backend/tests/test_images/test_normal.jpg || (echo "Missing test image!" && exit 1)
+          Get-ChildItem backend/model
+          Get-ChildItem backend/tests/test_images
+
+          if (-Not (Test-Path backend/model/model_unquant.tflite)) {
+            Write-Error "Missing model file!" ; exit 1
+          }
+          if (-Not (Test-Path backend/tests/test_images/test_normal.jpg)) {
+            Write-Error "Missing test image!" ; exit 1
+          }
 
       - name: Run Backend Tests
         run: |
@@ -65,6 +72,7 @@ jobs:
         if: env.SKIP_DEPLOYMENT != 'true'
         env:
           SSH_KEY: ${{ secrets.SSH_KEY }}
+        shell: bash
         run: |
           echo "$SSH_KEY" > key.pem
           chmod 600 key.pem
