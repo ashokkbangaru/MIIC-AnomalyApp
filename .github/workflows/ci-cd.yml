@@ -9,18 +9,26 @@ jobs:
   build_and_test:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout code
+      - name: Checkout code with LFS
         uses: actions/checkout@v2
+        with:
+          lfs: true  # Ensures .tflite model is pulled if using Git LFS
 
       - name: Set up Python
         uses: actions/setup-python@v2
         with:
           python-version: '3.12'
 
-      - name: Install dependencies
+      - name: Install Backend Dependencies
         run: |
           cd backend
           pip install -r requirements.txt
+
+      - name: Debug - Check for required files
+        run: |
+          echo "Checking model and image files..."
+          ls -lh backend/model
+          ls -lh backend/tests/test_images
 
       - name: Run Backend Tests
         run: |
@@ -42,7 +50,11 @@ jobs:
         run: |
           cd backend
           docker build -t anomaly-backend .
-          
-      - name: Deploy Backend to VM (via SSH)
+
+      - name: Deploy Backend to VM via SSH
+        env:
+          SSH_KEY: ${{ secrets.SSH_KEY }}
         run: |
-          ssh ashok@192.168.56.101 "docker run -d -p 8000:8000 anomaly-backend"
+          echo "$SSH_KEY" > key.pem
+          chmod 600 key.pem
+          ssh -o StrictHostKeyChecking=no -i key.pem ashok@192.168.56.101 "docker stop anomaly-backend || true && docker rm anomaly-backend || true && docker run -d --name anomaly-backend -p 8000:8000 anomaly-backend"
